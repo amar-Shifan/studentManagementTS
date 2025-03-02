@@ -4,10 +4,10 @@ import {Request , Response} from 'express';
 
 export const getStudents = async (req: Request, res: Response) => {
     try {
-      const students = await Student.find();
-      res.render("index", { students });
+        const students = await Student.find();
+        res.render("index", { students });
     } catch (error) {
-      res.status(500).send("Error fetching students");
+        res.status(500).send("Error fetching students");
     }
 };
 
@@ -32,7 +32,7 @@ export const showEditForm = async(req: Request , res: Response)=>{
     try {
 
         const student = await Student.findById(req.params.id)
-        res.render('edit' , {student});
+        res.render('edit-student' , {student});
 
     } catch (error) {
         res.status(500).send('Something went wrong!')
